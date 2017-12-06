@@ -1,0 +1,54 @@
+﻿@model MVCNovembre2017.Models.Client
+@{
+    ViewBag.Title = "Editer";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/Site.css"/>
+
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="~/Scripts/MyJSValidation.js"></script>
+    
+</head>
+<body>
+
+    @*<form action="~/client/editer/@Model.Id" method="post">*@
+
+    <div>
+    @using (Html.BeginForm(actionName: "editer", controllerName: "client", method: FormMethod.Post))
+    {
+        @Html.LabelFor(model => model.Id)@: 
+        @Html.DisplayFor(model => model.Id)
+        @Html.ValidationMessageFor(model=>model.Id)<br/>
+        
+
+        @Html.LabelFor(model => model.Nom)@: 
+        @Html.EditorFor(model => model.Nom)
+        @Html.ValidationMessageFor(model=>model.Nom,"*")<br/>
+
+        @Html.LabelFor(model => model.Prenom)@: 
+        @Html.EditorFor(model => model.Prenom)<br />
+
+        @Html.LabelFor(model => model.DateNaissance)@: 
+        @Html.EditorFor(model => model.DateNaissance)<br />
+
+        <p><button type="submit">MAJ - Terminé</button></p>
+        
+        @Html.ValidationSummary()
+    }
+
+    </div>
+    @*</form>*@
+
+</body>
+</html>
+

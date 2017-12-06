@@ -1,0 +1,21 @@
+﻿@model MVCNovembre2017.Models.Client
+@{
+    ViewBag.Title = "Affichage du client";
+   Layout = null;
+  }
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+    </head>
+    <body>
+        <p>Client ID: @Model.Id</p>
+        <p>Nom: @Model.Nom</p>
+        <p>Prenom: @Model.Prenom</p>
+        <p>Date de Naissance: @Model.DateNaissance</p>
+        <p><a href="~/client">Retour à la liste</a></p>
+    </body>
+</html>

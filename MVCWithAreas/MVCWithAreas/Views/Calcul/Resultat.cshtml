@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.title = "Resultat";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.title</title>
+</head>
+<body>
+
+     @Html.MvcSiteMap().SiteMapPath()
+    @Html.MvcSiteMap().Menu(false, true, false)
+    @{var root = Html.MvcSiteMap().SiteMap.RootNode;
+      @: > @root.Title (@root.Url) <br />
+        
+    }
+    <br />
+    <div>
+        Le resultat est @Model
+    </div>
+    heure: @ViewBag.heure<br />
+
+   
+
+    @*@foreach (var node in Html.MvcSiteMap().SiteMap.RootNode.Descendants)
+    {
+       @:Titre @node.Title(@node.Url)
+    }*@
+    <a href="/calculajouter/45.2/-12">45.2 + -12</a><br />
+    @Html.ActionLink("maisson", "FrontPage")<br />
+    @Html.ActionLink("haus", "index", "home")<br />
+    @Html.ActionLink("5 * 6", "multiplier", new { v1 = 5, v2 = 6 })<br />
+    @Html.RouteLink("7 * 8", "calculs", new { action = "multiplier", v1 = 7, v2 = 8 })<br />
+
+    @if (ViewContext.RouteData.Values["v2"].Equals("0"))
+    {
+         var s= Html.Action("multiplier", new { v1 = 9, v2 = 10});
+        @s
+        foreach (String p in Request.Params)
+        { 
+            if(Request.Params[p].Length !=0)
+            {
+            @p @: @Request.Params[p]<br />
+            }
+        }
+    }
+
+    @foreach (KeyValuePair<String, Object> p in ViewContext.RouteData.Values)
+        { 
+        
+            @p.Key @:= @p.Value @p.Value.GetType() ,<br />
+            
+        }
+    
+    <br />
+
+</body>
+</html>

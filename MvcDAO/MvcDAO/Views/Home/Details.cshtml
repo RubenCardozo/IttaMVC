@@ -1,0 +1,29 @@
+﻿@model MvcDAO.Models.Personne
+@{
+    ViewBag.Title = "Details";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+     <p>@Html.LabelFor(model => model.Nom)
+        @Html.DisplayNameFor(model => model.Nom)</p><br />
+
+     <p>@Html.LabelFor(model => model.Prenom)
+        @Html.DisplayNameFor(model => model.Prenom)</p><br />
+
+     <p>@Html.LabelFor(model => model.Nom)
+        @Html.DisplayNameFor(model => model.Salaire)</p><br />
+
+     <p>@Html.LabelFor(model => model.Nom)
+        @Html.DisplayNameFor(model => model.DateNaissance)</p><br />
+        
+    </div>
+</body>
+</html>

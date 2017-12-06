@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+@using MVCNovembre2017.Models
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @if (ViewData["vda"] != null && ViewBag.vdb != null)
+        {
+
+            Client cli = ((Client)ViewData["vda"]);
+            Client cli2 = ViewBag.vdb;
+               
+            @( cli.Nom + " " + cli.Prenom)<br />
+            @cli.Nom @cli.Prenom <br />
+            <p></p>
+            @cli2.Nom @cli2.Prenom <br />
+            @ViewBag.vdb.Nom @ViewBag.vdb.Prenom <br />        
+        }
+
+        @Request.Cookies
+        @if (Request.Cookies["gateau"] != null)
+        {
+            @Request.Cookies["gateau"].Name
+            @:=
+            @Request.Cookies["gateau"].Value
+        }<br />
+
+        Session
+        @if (Session["cli"] != null)
+        {
+            Client c = (Client)Session["cli"];
+            @c.Id @:= @c.Nom + @c.Prenom
+            Session.Remove("cli");<br />
+            @Session.SessionID <br />
+            @(Request.Cookies["ASP.NET_SessionId"]!=null? 
+                Request.Cookies["ASP.NET_SessionId"].Value : 
+                "Pas coockie de session")<br />
+            @: Timeout = @Session.Timeout <br />
+        }
+        @(Session["i"]??"pas de i dans la session")
+        @HttpContext.Current.Application["nbusers"] utilisateur/e/s en cours
+
+    </div>
+</body>
+</html>

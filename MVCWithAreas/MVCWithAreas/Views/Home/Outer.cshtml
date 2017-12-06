@@ -1,0 +1,54 @@
+﻿@model Double
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Outer</title>
+    <script src="~/Scripts/jquery-1.7.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+</head>
+<body>
+    <div> Dans outer random=
+        @Model<br />
+        <br />
+        @*@Html.Action("inner")*@
+        Vue Partial = <br />
+        @{
+            var r = Html.Partial("~/Views/Home/Inner.cshtml");
+        }
+        @r<br />
+        <br />
+        @*
+        Vue de RenderPartial = <br />
+        @{
+            Html.RenderPartial("~/Views/Home/Inner.cshtml");<br/>
+        
+
+        Vue de RenderAction = <br />
+        
+            Html.RenderAction("Inner");
+        }*@
+        <br />
+
+        AJAX : 
+        @Ajax.ActionLink("voir resultat", "Inner",
+            new AjaxOptions
+            {
+            InsertionMode= InsertionMode.Replace,
+            UpdateTargetId="resultat",
+            HttpMethod="POST",
+            Confirm="Do u want to continue?",
+            //LoadingElementDuration=500,
+            //LoadingElementId="resultat",
+            //OnComplete="alert('done')"
+            }
+        )
+    </div>
+    <div id="resultat"></div>
+</body>
+</html>

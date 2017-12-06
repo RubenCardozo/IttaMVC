@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Home"  controller="Home" action="Index">
+    <siteMapNode url="~/Home/Templated" title="MaisonTemplated"  description="">
+        <siteMapNode url="~/CalculeAjouter/45/23" title="45 plus 23"  description="" />
+        <siteMapNode url="~/CalculeMultiplier/45/23" title="45 fois 23"  description="" />  
+        <siteMapNode url="~/CalculeAjouter/60/3" title="60 plus 3"  description="" />
+    </siteMapNode>
+    
+    <siteMapNode url="~/admin/Default/Index" title="admintration"  description="" />
+  </siteMapNode>
+</siteMap>

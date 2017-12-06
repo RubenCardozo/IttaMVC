@@ -1,0 +1,42 @@
+﻿@model MVCAuth.Models.LoginUser
+@{
+    
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+     @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <h2>Login</h2>
+
+       <div>
+
+            @using (Html.BeginForm(actionName: "login", controllerName: "securite", method: FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()     
+
+                @Html.LabelFor(model=>model.Username)@: :
+                @Html.EditorFor(model=>model.Username)<br />
+                
+            
+                @Html.LabelFor(model=>model.Password) @: :
+                @Html.PasswordFor(model=>model.Password)<br />
+              <br />
+
+                <button type="submit">LOGIN</button>
+                
+                @*@{Html.EndForm();}*@
+                
+            }
+  
+        </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿@model List<MVCNovembre2017.Models.Client>
+@{
+    ViewBag.Title = "Liste de clients";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/Site.css"/>
+
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    <script src="~/Scripts/MyJSValidation.js"></script>
+    @*<script src="~/Scripts/MyJQuery.js"></script>*@
+</head>
+<body>
+    <div>
+        <ul>
+        @{foreach (MVCNovembre2017.Models.Client client in @Model)
+            {
+            <li>@client.Id : @Html.Raw(@client.Nom), @client.Prenom -
+                @( @client.DateNaissance.HasValue?
+                @client.DateNaissance.Value.ToShortDateString() :"pas né!?"
+                )
+
+                <a href="~/client/afficher/@client.Id">voir @client.Nom</a>
+                <a href="~/client/supprimer/@client.Id">Supprimer</a>
+                <a href="~/client/editer/@client.Id">Editer</a>
+            </li>   
+            }  
+                  
+        }
+        </ul>
+        <a href="~/client/ajouter">Ajouter</a>
+
+    </div>
+</body>
+</html>

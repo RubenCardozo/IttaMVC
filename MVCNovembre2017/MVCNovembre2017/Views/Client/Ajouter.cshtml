@@ -1,0 +1,70 @@
+﻿@model MVCNovembre2017.Models.Client
+@{
+    ViewBag.Title = "Ajouter";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+
+        <link type="text/css" rel="stylesheet" href="~/Content/Site.css"/>
+
+ 
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+      
+        <script src="~/Scripts/MyJSValidation.js"></script>
+
+        <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+       
+
+    </head>
+    <body>
+
+        @*<form action="~/client/ajouter" method="post">*@
+
+        <div>
+
+            @{Html.BeginForm(actionName: "ajouter", controllerName: "client", method: FormMethod.Post);}
+            
+         
+                @Html.LabelFor(model=>model.Id)
+                @Html.EditorFor(model=>model.Id)<br />
+                @Html.ValidationMessageFor(model=>model.Id,"*")<br />
+           
+            
+                @Html.LabelFor(model=>model.Nom)
+                @Html.EditorFor(model=>model.Nom)<br />
+                @Html.ValidationMessageFor(model=>model.Nom,"*")<br />
+           
+
+                @Html.LabelFor(model=>model.Prenom)
+                @Html.EditorFor(model=>model.Prenom)
+                @Html.ValidationMessageFor(model=>model.Prenom,"*")<br />
+
+                @Html.LabelFor(model=>model.DateNaissance)
+                @Html.EditorFor(model=>model.DateNaissance)<br />
+
+                <button type="submit">Créer</button><br />
+                
+
+                @*@Html.ValidationSummary()*@
+            @{Html.EndForm();}
+
+            <button type="submit">Test</button>
+                <button type="submit" id ="ajax">Ajax</button>
+                <button type="submit" id ="serial">KILLER</button>
+             
+             <script type="text/javascript" src="~/Scripts/MyOtherJQuery.js"></script>
+            
+        </div>
+          
+        @*</form>*@
+        
+        
+    </body>
+</html>

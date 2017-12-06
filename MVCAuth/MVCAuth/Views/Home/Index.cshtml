@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home page";
+}
+
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    @if (@User.Identity.IsAuthenticated)
+	{
+		 @:Bonjour utilisateur @User.Identity.Name <br />
+	}else{
+        @: Bienvenu étranger anonyme<br />
+    }
+    
+
+    <div>
+        <h3>@ViewBag.Title</h3>
+        <p><a href="/home/verboten">Verboten</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+    <h1>ERROR!!!!</h1>
+    <h2>
+        Sorry, an error occurred while processing your request.
+    </h2>
+    @Model.Exception.Message <br />
+    action @Model.ActionName depuis @Model.ControllerName
+</body>
+</html>
