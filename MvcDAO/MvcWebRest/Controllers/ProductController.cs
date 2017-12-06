@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Objects;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -12,16 +13,40 @@ namespace MvcWebRest.Controllers
 
         NorthwindEntities entities = new NorthwindEntities(true);
 
-        // GET api/values
-        public IEnumerable<Product> Get()
+        // GET api/Product
+        public IEnumerable<Product> Get(String orderby= null, string dir ="ASC")
         {
-            return entities.Products.ToList();
+            if (orderby == null)
+            {
+                return entities.Products.ToList();
+            }
+            else 
+            {
+                ObjectContext oc = new ObjectContext("");
+                //return entities.Products.OrderBy(p => p.ProductName).ToList();
+                string sql = "select value Product from entities.Products as Product" +
+                   "orderby Product." + orderby + "" + dir;
+                ObjectQuery<List<Product>> query = new ObjectQuery<List<Product>>(sql, null);
+                ObjectResult<List<Product>> r= query.Execute(MergeOption.NoTracking);
+                return r;
+               
+            }
+            
         }
 
-        // GET api/Product/5
-        public Product Get(int id)
+        // GET api/Product/5?include=Category
+        public Product Get(int id, string include=null)
         {
-            return entities.Products.FirstOrDefault(p => p.ProductID == id);
+            if (include==null)
+            {
+                return entities.Products.FirstOrDefault(p => p.ProductID == id);
+            }
+            else
+            {
+                return entities.Products.Include(include).FirstOrDefault(p => p.ProductID == id);
+               
+            }
+            
         }
 
         // GET api/Product/?name=Chai
@@ -29,6 +54,8 @@ namespace MvcWebRest.Controllers
         {
             return entities.Products.FirstOrDefault(p =>String.Compare( p.ProductName, name,true)==0);
         }
+       
+       
 
         // POST(create) api/values
         public void Post([FromBody]Product value)
