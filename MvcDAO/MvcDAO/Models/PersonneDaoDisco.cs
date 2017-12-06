@@ -28,13 +28,13 @@ namespace MvcDAO.Models
         }
 
 
-        public static List<Personne> getPersonnes()
+        public static List<MyPersonne> getPersonnes()
         {
 
-            List<Personne> peuple = new List<Personne>();
+            List<MyPersonne> peuple = new List<MyPersonne>();
             foreach (DataRow row in personnesDS.Tables["Personne"].Rows)
             {
-                Personne p = new Personne();
+                MyPersonne p = new MyPersonne();
                 p.Id = (int)row["Id"];
                 p.Nom = (String)row["Nom"];
                 p.Prenom = (String)row["Prenom"];
@@ -46,10 +46,10 @@ namespace MvcDAO.Models
         }
 
 
-        public static Personne getPersonneById(int id)
+        public static MyPersonne getPersonneById(int id)
         {
             DataRow row = personnesDS.Tables["Personne"].Rows.Find(id);
-            Personne p = new Personne();
+            MyPersonne p = new MyPersonne();
             p.Id = (int)row["Id"];
             p.Nom = (String)row["Nom"];
             p.Prenom = (String)row["Prenom"];
@@ -59,7 +59,7 @@ namespace MvcDAO.Models
         }
 
 
-        public static bool addOrUpdatePersonne(Personne personne)
+        public static bool addOrUpdatePersonne(MyPersonne personne)
         {
 
             DataRow row = personnesDS.Tables["Personne"].Rows.Find(personne.Id);
@@ -88,7 +88,7 @@ namespace MvcDAO.Models
         }
 
 
-        public static bool Update(Personne personne, DataRow row = null)
+        public static bool Update(MyPersonne personne, DataRow row = null)
         {
             if (row == null)
             {
@@ -112,7 +112,7 @@ namespace MvcDAO.Models
 
 
 
-        private static void LoadPersonnelFromRow(Personne personne, DataRow row)
+        private static void LoadPersonnelFromRow(MyPersonne personne, DataRow row)
         {
             row["Id"]=personne.Id;
             row["Nom"] = personne.Nom;

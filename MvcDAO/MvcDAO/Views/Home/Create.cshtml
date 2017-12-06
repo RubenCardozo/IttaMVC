@@ -1,4 +1,6 @@
-﻿@{
+﻿@model MvcDAO.Personne
+
+@{
     Layout = null;
 }
 
@@ -10,8 +12,56 @@
     <title>Create</title>
 </head>
 <body>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Personne</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Nom)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Nom)
+                @Html.ValidationMessageFor(model => model.Nom)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Prenom)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Prenom)
+                @Html.ValidationMessageFor(model => model.Prenom)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Salaire)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Salaire)
+                @Html.ValidationMessageFor(model => model.Salaire)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DateNaissance)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DateNaissance)
+                @Html.ValidationMessageFor(model => model.DateNaissance)
+            </div>
+    
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+    
     <div>
-        
+        @Html.ActionLink("Back to List", "Index")
     </div>
 </body>
 </html>

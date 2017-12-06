@@ -27,3 +27,4 @@ C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcDAO\bin\System.We
 C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcDAO\bin\System.Web.WebPages.Razor.xml
 C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcDAO\obj\Debug\MvcDAO.dll
 C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcDAO\obj\Debug\MvcDAO.pdb
+C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcDAO\obj\Debug\MvcDAO.csprojResolveAssemblyReference.cache

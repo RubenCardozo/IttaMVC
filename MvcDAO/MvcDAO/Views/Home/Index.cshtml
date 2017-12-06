@@ -1,7 +1,10 @@
-﻿@model IEnumerable<MvcDAO.Models.Personne>
+﻿@*@model IEnumerable<MvcDAO.Models.Personne>*@
+@*@model dynamic*@
+@model IEnumerable<MvcDAO.Personne>
+
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
 
 <!DOCTYPE html>
@@ -9,7 +12,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index2</title>
+    <title>@ViewBag.Title</title>
 </head>
 <body>
     <p>

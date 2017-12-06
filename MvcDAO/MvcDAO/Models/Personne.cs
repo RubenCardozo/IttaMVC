@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MvcDAO.Models
 {
-    public class Personne
+    public class MyPersonne
     {
         public int Id { get; set; }
         public String Nom { get; set; }

@@ -10,9 +10,9 @@ namespace MvcDAO.Models
     public class PersonneDAO
     {
         String ittacours = ConfigurationManager.ConnectionStrings["ittacours"].ConnectionString;
-        List<Personne> peuple =new List<Personne>();
+        List<MyPersonne> peuple =new List<MyPersonne>();
 
-        public List<Personne> getPersonnes()
+        public List<MyPersonne> getPersonnes()
         {
 
             
@@ -29,7 +29,7 @@ namespace MvcDAO.Models
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        Personne p = new Personne();
+                        MyPersonne p = new MyPersonne();
                         p.Id = (int)reader["Id"];
                         p.Nom = (String)reader["Nom"];
                         p.Prenom = (String)reader["Prenom"];
@@ -47,7 +47,7 @@ namespace MvcDAO.Models
             }
         }
 
-        public Personne getPersonneById(int id)
+        public MyPersonne getPersonneById(int id)
         {
             using (SqlConnection cnx = new SqlConnection(ittacours))
             {
@@ -63,7 +63,7 @@ namespace MvcDAO.Models
                 {
                     while (reader.Read())
                     {
-                        Personne p = new Personne();
+                        MyPersonne p = new MyPersonne();
                         p.Id = (int)reader["Id"];
                         p.Nom = (String)reader["Nom"];
                         p.Prenom = (String)reader["Prenom"];
@@ -83,9 +83,9 @@ namespace MvcDAO.Models
 
         }
 
-        public bool addOrUpdatePersonne(Personne personne)
+        public bool addOrUpdatePersonne(MyPersonne personne)
         {
-            Personne person;
+            MyPersonne person;
             if ((person = getPersonneById(personne.Id)) == null)
             {
                 try
@@ -124,7 +124,7 @@ namespace MvcDAO.Models
 
         }
 
-        public bool Update(Personne personne)
+        public bool Update(MyPersonne personne)
         {
             try
             {

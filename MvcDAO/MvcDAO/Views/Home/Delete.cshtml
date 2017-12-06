@@ -1,4 +1,6 @@
-﻿@{
+﻿@model MvcDAO.Personne
+
+@{
     Layout = null;
 }
 
@@ -10,8 +12,44 @@
     <title>Delete</title>
 </head>
 <body>
-    <div>
-        
-    </div>
+    <h3>Are you sure you want to delete this?</h3>
+    <fieldset>
+        <legend>Personne</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Nom)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nom)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Prenom)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Prenom)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Salaire)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Salaire)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.DateNaissance)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.DateNaissance)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm()) {
+        <p>
+            <input type="submit" value="Delete" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    }
+
 </body>
 </html>

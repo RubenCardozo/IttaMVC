@@ -1,6 +1,7 @@
-﻿@model MvcDAO.Models.Personne
+﻿@model MvcDAO.Personne
+
 @{
-    ViewBag.Title = "Details";
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -8,22 +9,43 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>Details</title>
 </head>
 <body>
-    <div>
-     <p>@Html.LabelFor(model => model.Nom)
-        @Html.DisplayNameFor(model => model.Nom)</p><br />
-
-     <p>@Html.LabelFor(model => model.Prenom)
-        @Html.DisplayNameFor(model => model.Prenom)</p><br />
-
-     <p>@Html.LabelFor(model => model.Nom)
-        @Html.DisplayNameFor(model => model.Salaire)</p><br />
-
-     <p>@Html.LabelFor(model => model.Nom)
-        @Html.DisplayNameFor(model => model.DateNaissance)</p><br />
-        
-    </div>
+    <fieldset>
+        <legend>Personne</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Nom)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nom)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Prenom)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Prenom)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Salaire)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Salaire)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.DateNaissance)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.DateNaissance)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </body>
 </html>
