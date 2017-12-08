@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Linq;
 using System.Web;
@@ -20,16 +22,21 @@ namespace MvcWebRest.Controllers
             {
                 return entities.Products.ToList();
             }
-            else 
+            else
+            //return entities.Products.OrderBy(p => p.ProductName).ToList();
             {
-                ObjectContext oc = new ObjectContext("");
-                //return entities.Products.OrderBy(p => p.ProductName).ToList();
-                string sql = "select value Product from entities.Products as Product" +
-                   "orderby Product." + orderby + "" + dir;
-                ObjectQuery<List<Product>> query = new ObjectQuery<List<Product>>(sql, null);
-                ObjectResult<List<Product>> r= query.Execute(MergeOption.NoTracking);
-                return r;
-               
+                //using(EntityConnection connection = new EntityConnection("Name= NorthwindEntities"))
+                //{                
+                //string sql = "select VALUE Product from entities.Products as Product" +
+                //             "order by Product." + orderby + " " + dir; //ESQL -> Entity SQL
+                //ObjectContext oc = new ObjectContext(connection);
+                //ObjectQuery<Product> query = new ObjectQuery<Product>(sql, oc);
+
+                //return query.ToList(); ;
+                //}
+                DbSqlQuery<Product> sq= entities.Products.SqlQuery
+                                        ("select * from Products order by " + orderby + " " + dir);//TSQL
+                return sq.ToList();
             }
             
         }
