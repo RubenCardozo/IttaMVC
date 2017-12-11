@@ -27,6 +27,6 @@ C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcWebRest\bin\Syste
 C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcWebRest\bin\System.Web.WebPages.xml
 C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcWebRest\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcWebRest\bin\System.Web.WebPages.Razor.xml
-C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcWebRest\obj\Debug\MvcWebRest.csprojResolveAssemblyReference.cache
 C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcWebRest\obj\Debug\MvcWebRest.dll
 C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcWebRest\obj\Debug\MvcWebRest.pdb
+C:\Users\Admin\documents\visual studio 2012\Projects\MvcDAO\MvcWebRest\obj\Debug\MvcWebRest.csprojResolveAssemblyReference.cache
