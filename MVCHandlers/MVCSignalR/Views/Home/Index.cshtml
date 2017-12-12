@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset ="utf-8"/>
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="~/Scripts/jquery-1.7.1.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+    <script src="/signalr/hubs"></script>
+
+    <title>@ViewBag.Title</title>
+</head>
+
+<body>
+
+    <div>
+        <p>
+            Login: <input id="login" type="text" />
+        </p>
+
+        <p>
+            <button id="btnConnect" type="button">Connecter</button>
+            <button id="btnDisconnect" type="button">Déconnecter</button>
+        </p>
+
+        <p>
+            <select id="users">
+                <option value="choose"></option>
+            </select>
+        </p>
+
+        <p>
+            <input id="message" type="text" />
+        </p>
+
+        <p>
+            <button id="btnSend" type="button">Envoyer</button>
+        </p>
+    </div>
+
+    <div id="etat">
+    </div>
+
+    <script>
+        var itta = $.connection.ittahub;
+        $.connection.hub.logging = true;
+        var divetat = $("#etat");
+
+        $("#btnConnect").click(
+            function () {
+                
+                    itta.client.onReception = function (expt, dest, message) {
+                        divetat.html(divetat.html() + expt + "-&gt;" + dest + "=" + message + "<br>");     
+                    };
+
+                    $.connection.hub.start().done(
+                    function () {
+                        divetat.html("Hub démarré <br>");
+                        itta.server.connecting($("#login").val(), true);
+
+
+                        $("#btnSend").click(
+                            function () {
+                                itta.server.envoi(itta.connection.id, "Toto", $("#message").val());
+                                $("#message").val("");
+                            }
+                        );//Fin de click #btnSend
+
+                        
+
+                        $("#btnDisconnect").click(
+                            function () {
+                                itta.server.connecting($("#login").val(), false);
+                                $.connection.hub.stop();
+                                divetat.html("Hub arrêté <br>")
+                            }
+                        );//Fin de click #btnDisconnect
+                    }
+                );
+            }
+        );//Fin de click #btnConnect
+    </script>
+
+</body>
+
+</html>

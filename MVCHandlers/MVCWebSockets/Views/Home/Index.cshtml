@@ -15,12 +15,12 @@
 <body>
 
     <div>
-        <button id="btnConnect" type="button">Connecter</button>  />
-        <button id="btnDisconnect" type="button">Déconnecter</button>  />
+        <p><button id="btnConnect" type="button">Connecter</button>
+        <button id="btnDisconnect" type="button">Déconnecter</button></p>  
 
-        <input  id="message" type="text" /><br /> 
+        <p><input  id="message" type="text" /></p>
 
-        <button id="btnSend" type="button"  >Envoyer</button>/>
+        <p><button id="btnSend" type="button"  >Envoyer</button></p>
     </div>
 
     <div id="etat">
@@ -32,19 +32,20 @@
         var divetat = $("#etat");
         $("#btnConnect").click(
             function () {
-                var url = "ws://"+window.location.hostname+"/api/WSocketServer"
+                var url = "ws://" + window.location.hostname +":"+
+                           + window.location.port + "/api/WSocketServer";
                 ws = new WebSocket(url);
                 ws.onmessage = function (evt) {
-                    divetat.text(evt.data+"<br>");
+                    divetat.text(evt.data);
                 };
                 ws.onopen = function (evt) {
-                    divetat.text("connexion établie <br/>");
+                    divetat.text("Connexion établie!!!");
                 };
                 ws.onclose = function (evt) {
-                    divetat.text("connexion fermée <br/>");
+                    divetat.text("Connexion fermé!!!");
                 };
                 ws.onerror = function (evt) {
-                    divetat.text("oups: "+evt.message);
+                    divetat.text("Oups: "+evt.message);
                 };
 
             }
@@ -63,13 +64,8 @@
                     $("#message").val("");
                 }
                 else {
-                    divetat.text("désolé, connection fermée");
+                    divetat.text("Désolé, connection fermée");
                 }
-            }
-            );
-
-        $("#btnDisconnect").click(
-            function () {
             }
             );
 
