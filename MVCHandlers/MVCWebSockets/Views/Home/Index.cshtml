@@ -1,0 +1,80 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.7.1.js"></script>
+    <title>Index</title>
+</head>
+
+<body>
+
+    <div>
+        <button id="btnConnect" type="button">Connecter</button>  />
+        <button id="btnDisconnect" type="button">Déconnecter</button>  />
+
+        <input  id="message" type="text" /><br /> 
+
+        <button id="btnSend" type="button"  >Envoyer</button>/>
+    </div>
+
+    <div id="etat">
+
+    </div>
+
+    <script>    
+        var ws;
+        var divetat = $("#etat");
+        $("#btnConnect").click(
+            function () {
+                var url = "ws://"+window.location.hostname+"/api/WSocketServer"
+                ws = new WebSocket(url);
+                ws.onmessage = function (evt) {
+                    divetat.text(evt.data+"<br>");
+                };
+                ws.onopen = function (evt) {
+                    divetat.text("connexion établie <br/>");
+                };
+                ws.onclose = function (evt) {
+                    divetat.text("connexion fermée <br/>");
+                };
+                ws.onerror = function (evt) {
+                    divetat.text("oups: "+evt.message);
+                };
+
+            }
+            );
+
+        $("#btnDisconnect").click(
+            function () {
+                ws.close();
+            }
+            );
+
+        $("#btnSend").click(
+            function () {
+                if (ws.readyState ==WebSocket.OPEN) {
+                    ws.send($("#message").val());
+                    $("#message").val("");
+                }
+                else {
+                    divetat.text("désolé, connection fermée");
+                }
+            }
+            );
+
+        $("#btnDisconnect").click(
+            function () {
+            }
+            );
+
+    </script>
+
+</body>
+
+</html>

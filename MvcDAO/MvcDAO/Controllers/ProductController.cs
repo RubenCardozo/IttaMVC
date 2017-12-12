@@ -42,11 +42,11 @@ namespace MvcDAO.Controllers
 
             Product product = null;
             
-            HttpResponseMessage reponse = client.GetAsync("api/product/"+ id).GetAwaiter().GetResult();
+            HttpResponseMessage reponse = client.GetAsync("api/product/"+ id).Result;
 
             if (reponse.IsSuccessStatusCode)
             {
-                product = reponse.Content.ReadAsAsync<Product>().GetAwaiter().GetResult();
+                product = reponse.Content.ReadAsAsync<Product>().Result;
             }
 
             return View(product);
