@@ -8,5 +8,7 @@ namespace MVCSignalR.Models
     public interface IClient
     {
         void onReception(string expediteur, string destinataire, string message);
+
+        void onUpdateUsers(List<string>names);
     }
 }

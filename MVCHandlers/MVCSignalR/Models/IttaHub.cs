@@ -18,23 +18,26 @@ namespace MVCSignalR.Models
         public void envoi(string expediteur, string destinataire, string message)
         {
             //Clients.All.reception(expediteur,destinataire,message);
-            Clients.Group("Users").onReception(expediteur, destinataire, message);
+            //Clients.Group("Users").onReception(expediteur, destinataire, message);
+            Clients.Client(users[destinataire]).onReception(expediteur, destinataire, message);
         }
 
-        [HubMethodName("envoi")]
+        [HubMethodName("connecting")]
         public void connecting(string username, bool connect)
         {
             String cid = Context.ConnectionId;
 
-                if (users[username] == null && connect)
+                if (!users.ContainsKey(username)  && connect)
                 {
                     users.Add(username, cid);
+                    Clients.All.onUpdateUsers(users.Keys.OrderBy(t => t).ToList());
                     Clients.Others.onReception(username, null, "is_connected");
                 }
                 else
                     if (users[username] == cid && !connect)
                 {
                     users.Remove(username);
+                    Clients.All.onUpdateUsers(users.Keys.OrderBy(t => t).ToList());
                     Clients.Others.onReception(username, null, "is_disconnected");
                 }   
         }

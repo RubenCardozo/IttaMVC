@@ -25,6 +25,5 @@ c:\users\admin\documents\visual studio 2012\Projects\MVCHandlers\MVCWebSockets\b
 c:\users\admin\documents\visual studio 2012\Projects\MVCHandlers\MVCWebSockets\bin\System.Web.WebPages.xml
 c:\users\admin\documents\visual studio 2012\Projects\MVCHandlers\MVCWebSockets\bin\System.Web.WebPages.Deployment.xml
 c:\users\admin\documents\visual studio 2012\Projects\MVCHandlers\MVCWebSockets\bin\System.Web.WebPages.Razor.xml
-c:\users\admin\documents\visual studio 2012\Projects\MVCHandlers\MVCWebSockets\obj\Debug\MVCWebSockets.csprojResolveAssemblyReference.cache
 c:\users\admin\documents\visual studio 2012\Projects\MVCHandlers\MVCWebSockets\obj\Debug\MVCWebSockets.dll
 c:\users\admin\documents\visual studio 2012\Projects\MVCHandlers\MVCWebSockets\obj\Debug\MVCWebSockets.pdb

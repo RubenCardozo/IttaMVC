@@ -32,6 +32,7 @@
         <p>
             <select id="users">
                 <option value="choose"></option>
+
             </select>
         </p>
 
@@ -48,41 +49,53 @@
     </div>
 
     <script>
+
         var itta = $.connection.ittahub;
         $.connection.hub.logging = true;
         var divetat = $("#etat");
-
+        var users = $("#users");
+        var login = $("#login");
         $("#btnConnect").click(
-            function () {
-                
-                    itta.client.onReception = function (expt, dest, message) {
-                        divetat.html(divetat.html() + expt + "-&gt;" + dest + "=" + message + "<br>");     
-                    };
+            function () {  
+                 itta.client.onReception = function (expt, dest, message) {
+                    divetat.html(divetat.html() + expt + "-&gt;" + dest + "=" + message + "<br>");     
+                 };
 
-                    $.connection.hub.start().done(
-                    function () {
-                        divetat.html("Hub démarré <br>");
-                        itta.server.connecting($("#login").val(), true);
+                 itta.client.onUpdateUsers = function (usernames) {
+                     users.html('');
+                     users.append("<option>choose</option>");
+
+                     for (var i = 0; i < usernames.length; i++) {
+                         if (usernames[i]!=login.val()) {
+                                users.append(" <option>" + usernames[i] + "</option>");
+                         }               
+                     }
+                 };
 
 
-                        $("#btnSend").click(
-                            function () {
-                                itta.server.envoi(itta.connection.id, "Toto", $("#message").val());
-                                $("#message").val("");
-                            }
-                        );//Fin de click #btnSend
+                   $.connection.hub.start().done(
+                        function () {
+                            divetat.html("Hub démarré <br>");
+                            itta.server.connecting(login.val(), true);
 
-                        
+                            $("#btnSend").click(
+                                function () {
+                                    itta.server.envoi(login.val(), users.val(), $("#message").val());
+                                    $("#message").val("");
+                                }
+                            );//Fin de click #btnSend
 
-                        $("#btnDisconnect").click(
-                            function () {
-                                itta.server.connecting($("#login").val(), false);
-                                $.connection.hub.stop();
-                                divetat.html("Hub arrêté <br>")
-                            }
-                        );//Fin de click #btnDisconnect
-                    }
-                );
+                            $("#btnDisconnect").click(
+                                function () {
+                                    itta.server.connecting(login.val(), false);
+                                    $.connection.hub.stop();
+                                    divetat.html("Hub arrêté <br>")
+                                }
+                            );//Fin de click #btnDisconnect
+
+                        }
+                    );
+
             }
         );//Fin de click #btnConnect
     </script>
