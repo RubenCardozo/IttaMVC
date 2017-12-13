@@ -1,0 +1,41 @@
+﻿@model MVCHandlers.ServiceIttaRef.Client
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Client</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Client</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.DateNaissance)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.DateNaissance)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Marie)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Marie)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Nom)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nom)
+        </div>
+    </fieldset>
+   
+</body>
+</html>

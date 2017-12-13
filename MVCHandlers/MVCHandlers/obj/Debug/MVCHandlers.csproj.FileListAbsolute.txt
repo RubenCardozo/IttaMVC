@@ -27,3 +27,4 @@ c:\users\admin\documents\visual studio 2012\Projects\MVCHandlers\MVCHandlers\bin
 c:\users\admin\documents\visual studio 2012\Projects\MVCHandlers\MVCHandlers\bin\System.Web.WebPages.Razor.xml
 c:\users\admin\documents\visual studio 2012\Projects\MVCHandlers\MVCHandlers\obj\Debug\MVCHandlers.dll
 c:\users\admin\documents\visual studio 2012\Projects\MVCHandlers\MVCHandlers\obj\Debug\MVCHandlers.pdb
+C:\Users\Admin\documents\visual studio 2012\Projects\MVCHandlers\MVCHandlers\obj\Debug\MVCHandlers.csprojResolveAssemblyReference.cache

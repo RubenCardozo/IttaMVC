@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCHandlers.ServiceIttaRef;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,15 +23,26 @@ namespace MVCHandlers.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {            
-            return View();
+        public ActionResult Autre()
+        {
+            Client pierre = null;
+            using (ServiceIttaClient proxy = new ServiceIttaClient())
+            {
+                pierre = proxy.getPartenaire(new Client() { Nom = "pier" });
+            }
+
+            return View(pierre);
         }
 
-        public ActionResult Contact()
+        public ActionResult useWS()
         {
-            ViewBag.Message = "Contact page";
-            return View();
+            Client toto = null;
+            using (ServiceIttaClient proxy = new ServiceIttaClient())
+            {
+               toto = proxy.getPartenaire(new Client() { Nom = "gertrud" });
+            }
+            
+            return View(toto);
         }
     }
 }

@@ -38,3 +38,4 @@ c:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCHandlers\MVCSignalR\bin\
 c:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCHandlers\MVCSignalR\bin\System.Web.WebPages.Razor.xml
 c:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCHandlers\MVCSignalR\obj\Debug\MVCSignalR.dll
 c:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCHandlers\MVCSignalR\obj\Debug\MVCSignalR.pdb
+c:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCHandlers\MVCSignalR\obj\Debug\MVCSignalR.csprojResolveAssemblyReference.cache

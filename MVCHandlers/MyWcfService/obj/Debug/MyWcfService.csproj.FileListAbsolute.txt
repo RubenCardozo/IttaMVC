@@ -1,0 +1,6 @@
+c:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCHandlers\MyWcfService\bin\Debug\MyWcfService.dll.config
+c:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCHandlers\MyWcfService\bin\Debug\MyWcfService.dll
+c:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCHandlers\MyWcfService\bin\Debug\MyWcfService.pdb
+c:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCHandlers\MyWcfService\obj\Debug\MyWcfService.csprojResolveAssemblyReference.cache
+c:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCHandlers\MyWcfService\obj\Debug\MyWcfService.dll
+c:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCHandlers\MyWcfService\obj\Debug\MyWcfService.pdb
