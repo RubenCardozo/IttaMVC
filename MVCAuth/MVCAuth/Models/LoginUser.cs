@@ -22,17 +22,17 @@ namespace MVCAuth.Models
         static ManageUsers()
         {
             users = new Dictionary<String, LoginUser>();
-            RegisterUser(new LoginUser() { Username = "Titi", Password = "Titi123+" });
-            RegisterUser(new LoginUser() { Username = "Tete", Password = "Tete123+" });
-            RegisterUser(new LoginUser() { Username = "Toto", Password = "Toto123+" });
-            RegisterUser(new LoginUser() { Username = "Tutu", Password = "Tutu123+" });
+            RegisterUser(new LoginUser() { Username = "titi", Password = "Titi123+" });
+            RegisterUser(new LoginUser() { Username = "tete", Password = "Tete123+" });
+            RegisterUser(new LoginUser() { Username = "toto", Password = "Toto123+" });
+            RegisterUser(new LoginUser() { Username = "tutu", Password = "Tutu123+" });
             
           
             foreach (var u in users)
             {
                 Membership.DeleteUser(u.Value.Username);
             }
-  Roles.DeleteRole("users");
+            Roles.DeleteRole("users");
             Roles.DeleteRole("admins");
             if (!Roles.RoleExists("users"))
             {
@@ -49,7 +49,8 @@ namespace MVCAuth.Models
             {
                 if (Membership.FindUsersByName(u.Value.Username).Count <= 0)
                 {
-                    MembershipUser user = Membership.CreateUser(u.Value.Username, u.Value.Password, u.Value.Username + "@toto.com");
+                    MembershipUser user = Membership.CreateUser(u.Value.Username,
+                        u.Value.Password, u.Value.Username + "@toto.com");
                     if (u.Value.Username == "titi" || u.Value.Username == "tutu")
                     {
                         Roles.AddUserToRole(u.Value.Username, "admins");

@@ -42,8 +42,5 @@ namespace MVCAuth.Controllers
             return View(loginuser);
         }
 
-     
-
-      
     }
 }
