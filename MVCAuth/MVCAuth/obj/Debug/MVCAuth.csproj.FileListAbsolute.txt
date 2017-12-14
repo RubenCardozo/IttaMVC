@@ -27,3 +27,4 @@ c:\users\admin\documents\visual studio 2012\Projects\MVCAuth\MVCAuth\bin\System.
 c:\users\admin\documents\visual studio 2012\Projects\MVCAuth\MVCAuth\bin\System.Web.WebPages.Razor.xml
 c:\users\admin\documents\visual studio 2012\Projects\MVCAuth\MVCAuth\obj\Debug\MVCAuth.dll
 c:\users\admin\documents\visual studio 2012\Projects\MVCAuth\MVCAuth\obj\Debug\MVCAuth.pdb
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\MVCAuth\MVCAuth\obj\Debug\MVCAuth.csprojResolveAssemblyReference.cache

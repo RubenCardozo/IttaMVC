@@ -5,12 +5,13 @@
 <h2>@ViewBag.Title</h2>
 
 <p>Bienvenu</p>
+
 @{
-    dynamic profile = System.Web.Profile.ProfileBase.Create(Membership.GetUser().UserName);
+    dynamic profile = System.Web.Profile.ProfileBase.Create(User.Identity.Name);
     }
 
 
 
-Langue : @profile.langue;1§                                                                                                                                                     
-Derniere Visite : @profile.dernierevisite;
+Langue : @profile.langue  <br />                                                                                                                                                 
+Derniere Visite : @profile.dernierevisite <br />
 

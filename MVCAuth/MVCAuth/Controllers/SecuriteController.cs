@@ -30,7 +30,7 @@ namespace MVCAuth.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LoginUser(LoginUser loginuser, string returnUrl)
+        public ActionResult Login(LoginUser loginuser, string returnUrl)
         {
 
             if (ModelState.IsValid && Membership.ValidateUser(loginuser.Username, loginuser.Password))

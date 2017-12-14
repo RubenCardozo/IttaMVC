@@ -20,13 +20,14 @@ namespace MVCAuth.Controllers
             return View();
         }
 
-        [Authorize(Users ="titi,tutu")]
-        [Authorize (Roles="admins")]
+        //[Authorize(Users ="titi,tutu")]
+        //[Authorize (Roles="admins")]
         public ActionResult Verboten()
         {
-            dynamic profile = ProfileBase.Create(Membership.);
-            Profile.langue = "hongrois";
-            Profile.dernierevisite = DateTime.Now;
+            dynamic profile = ProfileBase.Create(User.Identity.Name);
+            profile.langue = "hongrois";
+            profile.dernierevisite = DateTime.Now;
+            profile.Save();
             return View();
         }
     }

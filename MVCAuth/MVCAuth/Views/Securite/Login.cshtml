@@ -1,42 +1,55 @@
 ﻿@model MVCAuth.Models.LoginUser
+
 @{
-    
-    ViewBag.Title = "Login";
+    Layout = null;
 }
 
 <!DOCTYPE html>
+
 <html>
 <head>
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-     @Scripts.Render("~/bundles/jquery")
+    <title>Login</title>
 </head>
 <body>
-    <h2>Login</h2>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
 
-       <div>
 
-            @using (Html.BeginForm(actionName: "login", controllerName: "securite", method: FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()     
+    @using (Html.BeginForm("login", "securite", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
 
-                @Html.LabelFor(model=>model.Username)@: :
-                @Html.EditorFor(model=>model.Username)<br />
-                
-            
-                @Html.LabelFor(model=>model.Password) @: :
-                @Html.PasswordFor(model=>model.Password)<br />
-              <br />
+        <div class="form-horizontal">
+            <h4>LoginUser</h4>
+            <hr /><div class="form-group">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-                <button type="submit">LOGIN</button>
-                
-                @*@{Html.EndForm();}*@
-                
-            }
-  
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Login" class="btn btn-default" />
+                </div>
+            </div>
         </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 </body>
 </html>

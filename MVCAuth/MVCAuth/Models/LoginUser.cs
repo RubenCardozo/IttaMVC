@@ -22,14 +22,25 @@ namespace MVCAuth.Models
         static ManageUsers()
         {
             users = new Dictionary<String, LoginUser>();
-            RegisterUser(new LoginUser() { Username = "titi", Password = "Titi123+" });
-            RegisterUser(new LoginUser() { Username = "tete", Password = "Tete123+" });
-            RegisterUser(new LoginUser() { Username = "toto", Password = "Toto123+" });
-            RegisterUser(new LoginUser() { Username = "tutu", Password = "Tutu123+" });
+            RegisterUser(new LoginUser() { Username = "titi@toto.com", Password = "Titi123+" });
+            RegisterUser(new LoginUser() { Username = "tete@toto.com", Password = "Tete123+" });
+            RegisterUser(new LoginUser() { Username = "toto@toto.com", Password = "Toto123+" });
+            RegisterUser(new LoginUser() { Username = "tutu@toto.com", Password = "Tutu123+" });
             
           
             foreach (var u in users)
             {
+                try
+                {
+                    Roles.RemoveUserFromRole(u.Value.Username, "users");
+                }
+                catch { }
+                try
+                {
+                    Roles.RemoveUserFromRole(u.Value.Username, "admins");
+                }
+                catch { }
+
                 Membership.DeleteUser(u.Value.Username);
             }
             Roles.DeleteRole("users");
@@ -50,8 +61,8 @@ namespace MVCAuth.Models
                 if (Membership.FindUsersByName(u.Value.Username).Count <= 0)
                 {
                     MembershipUser user = Membership.CreateUser(u.Value.Username,
-                        u.Value.Password, u.Value.Username + "@toto.com");
-                    if (u.Value.Username == "titi" || u.Value.Username == "tutu")
+                        u.Value.Password, u.Value.Username);
+                    if (u.Value.Username == "titi@toto.com" || u.Value.Username == "tutu@toto.com")
                     {
                         Roles.AddUserToRole(u.Value.Username, "admins");
                     }
