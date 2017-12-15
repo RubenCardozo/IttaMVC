@@ -7,12 +7,14 @@ using System.Threading;
 using System.Globalization;
 using System.Web.Routing;
 
+
 namespace MVCADeployer.Controllers
 {
     public class HomeController : Controller
     {
         //
         // GET: /Home/
+       
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {
             if (Request.QueryString["langue"] != null)

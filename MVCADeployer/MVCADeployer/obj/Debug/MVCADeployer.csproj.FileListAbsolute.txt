@@ -1,3 +1,4 @@
+c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\obj\Debug\MVCADeployer.csprojResolveAssemblyReference.cache
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\MVCADeployer.dll
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\MVCADeployer.pdb
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\Antlr3.Runtime.dll
@@ -14,7 +15,9 @@ c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\b
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\System.Web.WebPages.Deployment.dll
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\System.Web.WebPages.dll
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\System.Web.WebPages.Razor.dll
+c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\Traduction.dll
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\WebGrease.dll
+c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\Traduction.pdb
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\EntityFramework.xml
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\Newtonsoft.Json.xml
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\System.Net.Http.Formatting.xml
@@ -25,6 +28,5 @@ c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\b
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\System.Web.WebPages.xml
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\System.Web.WebPages.Deployment.xml
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\bin\System.Web.WebPages.Razor.xml
-c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\obj\Debug\MVCADeployer.csprojResolveAssemblyReference.cache
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\obj\Debug\MVCADeployer.dll
 c:\users\admin\documents\visual studio 2012\Projects\MVCADeployer\MVCADeployer\obj\Debug\MVCADeployer.pdb
