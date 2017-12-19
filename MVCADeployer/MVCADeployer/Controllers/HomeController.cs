@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Threading;
 using System.Globalization;
 using System.Web.Routing;
-
+using Traduction;
 
 namespace MVCADeployer.Controllers
 {
